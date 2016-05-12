@@ -22,8 +22,9 @@ class RtspFormat {
   }
   waitForClick() {
     return new Promise((resolve, reject) => {
-      console.log('listen for event')
-      setTimeout(() => resolve('bam'), 5000);
+      console.log('listen for event');
+      // setTimeout(() => resolve('bam'), 5000);
+      this.click = () => resolve('bam');
     });
   }
 }
@@ -44,3 +45,5 @@ instance.play(false)
   return instance.waitForClick();
 })
 .then(disableSpinner.bind(this, 'final'));
+
+setTimeout(() => instance.click(), 2000);
